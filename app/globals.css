@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-violet: #7C3AED;
+  --color-coral: #FB7185;
+  --color-honey: #F59E0B;
+  --color-offwhite: #FFF8F0;
+  --color-ink: #1F1B2E;
+  --color-mist: #EFE9FF;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-offwhite text-ink font-sans antialiased;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-display font-bold tracking-tight;
+  }
+
+  h1 {
+    @apply text-[clamp(2.5rem,5vw,4.5rem)] leading-[1.1];
+  }
+
+  h2 {
+    @apply text-[clamp(1.875rem,3vw,2.75rem)] leading-[1.2];
+  }
+
+  p {
+    @apply leading-[1.65];
+  }
+}
+
+@layer components {
+  .section-scroll-margin {
+    scroll-margin-top: 4rem;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@keyframes lattice-drift {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
